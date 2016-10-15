@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-sass-extras'
+gem 'responders'
 
 group :development do
   gem 'spring-commands-rspec'
