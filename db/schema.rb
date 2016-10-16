@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161015100019) do
+ActiveRecord::Schema.define(version: 20161015142502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(version: 20161015100019) do
 
   add_index "abilities", ["name"], name: "index_abilities_on_name", unique: true, using: :btree
 
+  create_table "abilities_employees", id: false, force: :cascade do |t|
+    t.integer  "ability_id"
+    t.integer  "employee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "abilities_employees", ["ability_id"], name: "index_abilities_employees_on_ability_id", using: :btree
+  add_index "abilities_employees", ["employee_id"], name: "index_abilities_employees_on_employee_id", using: :btree
+
+  create_table "abilities_vacancies", id: false, force: :cascade do |t|
+    t.integer  "ability_id"
+    t.integer  "vacancy_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "abilities_vacancies", ["ability_id"], name: "index_abilities_vacancies_on_ability_id", using: :btree
+  add_index "abilities_vacancies", ["vacancy_id"], name: "index_abilities_vacancies_on_vacancy_id", using: :btree
+
   create_table "employees", force: :cascade do |t|
     t.string   "name"
     t.integer  "search_status"
@@ -33,16 +53,6 @@ ActiveRecord::Schema.define(version: 20161015100019) do
     t.datetime "updated_at",    null: false
   end
 
-  create_table "employees_abilities", id: false, force: :cascade do |t|
-    t.integer  "ability_id"
-    t.integer  "employee_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "employees_abilities", ["ability_id"], name: "index_employees_abilities_on_ability_id", using: :btree
-  add_index "employees_abilities", ["employee_id"], name: "index_employees_abilities_on_employee_id", using: :btree
-
   create_table "vacancies", force: :cascade do |t|
     t.string   "name"
     t.date     "valid_till"
@@ -51,15 +61,5 @@ ActiveRecord::Schema.define(version: 20161015100019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "vacancies_abilities", id: false, force: :cascade do |t|
-    t.integer  "ability_id"
-    t.integer  "vacancy_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "vacancies_abilities", ["ability_id"], name: "index_vacancies_abilities_on_ability_id", using: :btree
-  add_index "vacancies_abilities", ["vacancy_id"], name: "index_vacancies_abilities_on_vacancy_id", using: :btree
 
 end
