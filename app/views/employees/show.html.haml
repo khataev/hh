@@ -12,4 +12,8 @@
     %p
       = @employee.contacts
     %h3 Умения
-    = render @employee.abilities, object: @employee
+    = render @employee.abilities, object_name: 'employee', object: @employee, action: 'view'
+
+    %p
+      = link_to 'Редактировать', edit_employee_path(@employee)
+      = link_to 'Назад', employees_path

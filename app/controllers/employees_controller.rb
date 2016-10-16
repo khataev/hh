@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :load_employee, only: [:show, :update]
+  before_action :load_employee, only: [:show, :update, :edit]
 
   def index
     respond_with(@employees = Employee.all)

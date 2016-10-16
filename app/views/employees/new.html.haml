@@ -1,19 +1,6 @@
 .row
   .col-md-8
-    = form_for @employee do |f|
-      .form-group
-        = f.label :name, 'ФИО:'
-        = f.text_field :name, placeholder: 'Фамилия Имя Отчество на кириллице', class: 'form-control'
-        = f.label :contacts, 'Контактные данные:'
-        = f.text_area :contacts, placeholder: 'Ваши контактные данные, телефон, e-mail итп', class: 'form-control', cols: 90, rows: 10
-        = f.label :salary, 'Хочу запрплату'
-        = f.number_field :salary, in: 0..9999999, class: 'form-control'
-        = f.label :search_status, 'Ищу работу'
-        = f.check_box :search_status
-        %br
-        = render 'abilities/abilities', object: @employee
-        -#= f.submit 'Указать умения', type: 'button', class: 'btn btn-primary', data: {toggle: 'modal', target: '#abilitiesModal'}
-        = f.submit 'Сохранить', class: 'pull-right btn btn-default'
+    = render 'employees/form'
 
     -##abilitiesModal.modal.fade
       .modal-dialog{role: 'document'}

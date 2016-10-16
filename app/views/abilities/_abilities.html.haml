@@ -2,10 +2,7 @@
   .panel-heading
     %h4 Cписок умений
   .panel-body
-    - Ability.all.each do |ability|
-      = check_box_tag 'employee[ability_ids][]', ability.id, object.ability_ids.include?(ability.id)
-      = ability.name
-      %br
+    = render Ability.all, object_name: 'employee', object: @employee, action: 'edit'
     %h4 Новое умение:
     = form_for Ability.new, html: { class: 'new-comment-form' }, remote: true do |f|
       .new-ability-errors

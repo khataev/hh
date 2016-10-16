@@ -1,4 +1,6 @@
--#%li= ability.name
-= check_box_tag 'name', ability.id, object.ability_ids.include?(ability.id)
-= ability.name
-%br
+- if action == 'edit'
+  = check_box_tag check_box_name(object_name), ability.id, object.ability_ids.include?(ability.id)
+  = ability.name
+  %br
+- else
+  %li= ability.name
