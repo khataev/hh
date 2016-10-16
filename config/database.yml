@@ -14,3 +14,7 @@ development:
 test:
   <<: *default
   database: hh_test
+
+production:
+  <<: *default
+  database: hh_development
