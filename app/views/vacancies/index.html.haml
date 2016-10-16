@@ -1,0 +1,10 @@
+.col-md-8
+  %h1.vacancies-index-header
+    Выберите вакансию или
+    %p.new-vacancy-btn= link_to 'создайте новую', new_vacancy_path, class: 'btn btn-primary'
+  .vacancies-index-header-separator
+
+  - if @vacancies.empty?
+    %p В нашей базе данных еще нет ни одной вакансии
+  - else
+    = render @vacancies

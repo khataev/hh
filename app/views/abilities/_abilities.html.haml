@@ -1,14 +1,9 @@
 .panel.panel-default
   .panel-heading
     %h4 Cписок умений
-  .panel-body
-    = render Ability.all, object_name: 'employee', object: @employee, action: 'edit'
-    %h4 Новое умение:
-    = form_for Ability.new, html: { class: 'new-comment-form' }, remote: true do |f|
-      .new-ability-errors
-      -#= f.label :name, 'Название:'
-      = f.text_field :name, id: 'new-ability-name'
-      = f.submit 'Добавить', class: 'btn btn-primary'
+  .panel-body.abilities-list
+    = render Ability.all, object_name: object.class.to_s.downcase, object: object, action: action
+
 
 
 -#%ul.abilities-list

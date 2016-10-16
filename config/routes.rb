@@ -56,5 +56,6 @@ Rails.application.routes.draw do
 
   root 'root#start'
   resources :employees, only: [:index, :new, :update, :create, :show, :edit]
+  resources :vacancies, only: [:index, :new, :update, :create, :show, :edit]
   resources :abilities, only: [:index, :new, :create, :show]
 end

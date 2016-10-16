@@ -1,6 +1,7 @@
 <% if @ability.errors.present? %>
   $('.new-ability-errors').append('<%= j message %>' + '</br>');
 <% else %>
-  $('ul.abilities-list').append('<%= j render @ability %>');
+  $('#abilitiesModal .abilities-list').append('<%= j render @ability, action: 'view' %>');
+//  $('#closeAbilitiesModal').click(reloadHandler);
   $('#new-ability-name').val('');
 <% end %>

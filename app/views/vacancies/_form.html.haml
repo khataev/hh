@@ -1,0 +1,18 @@
+= form_for @vacancy do |f|
+  .form-group
+    = f.label :name, 'Наименование:'
+    = f.text_field :name, placeholder: 'Введите наименование вакансии', class: 'form-control'
+    = f.label :contacts, 'Контактные данные:'
+    = f.text_area :contacts, placeholder: 'Ваши контактные данные, телефон, e-mail итп', class: 'form-control', cols: 90, rows: 10
+    = f.label :salary, 'Предлагаемая запрплата'
+    = f.number_field :salary, in: 0..9999999, class: 'form-control'
+    = f.label :valid_till, 'Вакансия действительна до'
+    = f.date_select :valid_till
+    %br
+    = render 'abilities/abilities', object: @vacancy, action: 'edit'
+    -#.abilities-panel
+      = render 'vacancies/vacancy_abilities'
+    = f.submit 'Редактировать умения', type: 'button', class: 'btn btn-primary', data: {toggle: 'modal', target: '#abilitiesModal'}
+    = f.submit 'Сохранить', class: 'pull-right btn btn-default'
+
+= render 'abilities/edit_abilities_modal', object: @vacancy
