@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :load_employee, only: [:show, :update, :edit]
+  before_action :load_employee, only: [:show, :update, :edit, :vacancies]
 
   def index
     respond_with(@employees = Employee.all)
@@ -20,6 +20,10 @@ class EmployeesController < ApplicationController
 
   def update
     @employee.update(employee_params)
+    respond_with(@employee)
+  end
+
+  def vacancies
     respond_with(@employee)
   end
 

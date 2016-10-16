@@ -1,5 +1,5 @@
 class VacanciesController < ApplicationController
-  before_action :load_vacancy, only: [:show, :update, :edit]
+  before_action :load_vacancy, only: [:show, :update, :edit, :employees]
 
   def index
     respond_with(@vacancies = Vacancy.all)
@@ -25,6 +25,10 @@ class VacanciesController < ApplicationController
 
   def edit
 
+  end
+
+  def employees
+    respond_with(@vacancy)
   end
 
   private

@@ -14,5 +14,6 @@
       = render 'vacancies/vacancy_abilities'
     = f.submit 'Редактировать умения', type: 'button', class: 'btn btn-primary', data: {toggle: 'modal', target: '#abilitiesModal'}
     = f.submit 'Сохранить', class: 'pull-right btn btn-default'
+    = link_to 'Назад к списку', vacancies_path, class: 'pull-right btn btn-primary'
 
 = render 'abilities/edit_abilities_modal', object: @vacancy

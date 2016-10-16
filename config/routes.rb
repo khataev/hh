@@ -58,4 +58,7 @@ Rails.application.routes.draw do
   resources :employees, only: [:index, :new, :update, :create, :show, :edit]
   resources :vacancies, only: [:index, :new, :update, :create, :show, :edit]
   resources :abilities, only: [:index, :new, :create, :show]
+
+  get 'employees/:id/vacancies' => 'employees#vacancies', as: :employee_vacancies
+  get 'vacancies/:id/employees' => 'vacancies#employees', as: :vacancy_employees
 end

@@ -2,18 +2,19 @@
   .col-md-8
     %h2
       = @vacancy.name
-    %p
-      Действительна до:
-      = @vacancy.valid_till
-    %p
-      Предлагаемая зарплата
-      = @vacancy.salary
-    %p Контактная информация
-    %p
-      = @vacancy.contacts
+    %p.p-label Действительна до:
+    %p.p-value= @vacancy.valid_till
+    %br
+    %p.p-label Предлагаемая зарплата:
+    %p.p-value= @vacancy.salary
+    %br
+    %p.p-label Контактная информация:
+    %p.p-value= @vacancy.contacts
+    %br
     %h3 Требуемые умения
     = render @vacancy.abilities, object_name: 'vacancy', object: @vacancy, action: 'view'
 
-    %p
-      = link_to 'Редактировать', edit_vacancy_path(@vacancy)
-      = link_to 'Назад', vacancies_path
+    %p.control-buttons
+      = link_to 'Редактировать', edit_vacancy_path(@vacancy), class: 'btn btn-primary'
+      = link_to 'Показать подходящих работников', vacancy_employees_path(@vacancy), class: 'btn btn-primary'
+      = link_to 'Назад', vacancies_path, class: 'btn btn-primary'

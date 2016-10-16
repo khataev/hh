@@ -2,18 +2,18 @@
   .col-md-8
     %h2
       = @employee.name
-    %p
-      Статус:
-      = @employee.search_status == 1 ? 'Ищет работу' : 'Не ищет работу'
-    %p
-      Хочет зарплату
-      = @employee.salary
-    %p Контактная информация
-    %p
-      = @employee.contacts
+    %p.p-label Статус:
+    %p.p-value= @employee.search_status == 1 ? 'Ищет работу' : 'Не ищет работу'
+    %br
+    %p.p-label Хочет зарплату:
+    %p.p-value= @employee.salary
+    %br
+    %p.p-label Контактная информация:
+    %p.p-value= @employee.contacts
     %h3 Умения
     = render @employee.abilities, object_name: 'employee', object: @employee, action: 'view'
 
-    %p
-      = link_to 'Редактировать', edit_employee_path(@employee)
-      = link_to 'Назад', employees_path
+    %p.control-buttons
+      = link_to 'Редактировать', edit_employee_path(@employee), class: 'btn btn-primary'
+      = link_to 'Показать подходящие вакансии', employee_vacancies_path(@employee), class: 'btn btn-primary'
+      = link_to 'Назад', employees_path, class: 'btn btn-primary'
