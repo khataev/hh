@@ -1,0 +1,18 @@
+// Place all the styles related to the root controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.title-question {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.jumbo {
+  background-color: RGB(238,238,238);
+  border-radius: 6px;
+  height: 400px;
+  box-sizing: border-box;
+  //line-height: 20px;
+  margin-bottom: 30px;
+  padding: 48px 60px 48px 60px;
+  vertical-align: middle;
+}

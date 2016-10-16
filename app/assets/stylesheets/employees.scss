@@ -1,0 +1,24 @@
+// Place all the styles related to the employees controller here.
+// They will automatically be included in application.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-employee-btn {
+  display: inline;
+}
+
+.employees-index-header {
+  display: inline;
+}
+
+.employees-index-header-separator {
+  margin-bottom: 40px;
+}
+
+.employee-index-salary {
+  display: inline;
+}
+
+td.salary-cell {
+  white-space: nowrap;
+  width: 1%;
+}

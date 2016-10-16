@@ -1,0 +1,19 @@
+.panel.panel-default
+  .panel-heading
+    %h4 Cписок умений
+  .panel-body
+    - Ability.all.each do |ability|
+      = check_box_tag 'employee[ability_ids][]', ability.id, object.ability_ids.include?(ability.id)
+      = ability.name
+      %br
+    %h4 Новое умение:
+    = form_for Ability.new, html: { class: 'new-comment-form' }, remote: true do |f|
+      .new-ability-errors
+      -#= f.label :name, 'Название:'
+      = f.text_field :name, id: 'new-ability-name'
+      = f.submit 'Добавить', class: 'btn btn-primary'
+
+
+-#%ul.abilities-list
+-#  = render Ability.all, object: object
+

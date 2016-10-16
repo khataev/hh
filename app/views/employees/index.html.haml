@@ -1,0 +1,10 @@
+.col-md-8
+  %h1.employees-index-header
+    Выберите сотрудника или
+    %p.new-employee-btn= link_to 'создайте нового', new_employee_path, class: 'btn btn-primary'
+  .employees-index-header-separator
+
+  - if @employees.empty?
+    %p В нашей базе данных еще нет ни одного соискателя - будьте первым!
+  - else
+    = render @employees

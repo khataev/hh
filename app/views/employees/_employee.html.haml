@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    %table
+      %tr
+        %td.name-cell
+          = link_to employee.name, employee
+        %td.salary-cell
+          %p
+            $
+            = employee.salary

@@ -1,0 +1,15 @@
+.row
+  .col-md-8
+    %h2
+      = @employee.name
+    %p
+      Статус:
+      = @employee.search_status == 1 ? 'Ищет работу' : 'Не ищет работу'
+    %p
+      Хочет зарплату
+      = @employee.salary
+    %p Контактная информация
+    %p
+      = @employee.contacts
+    %h3 Умения
+    = render @employee.abilities, object: @employee
