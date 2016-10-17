@@ -1,10 +1,15 @@
 class Employee < ActiveRecord::Base
+  include ActiveModel::Validations
+
   has_and_belongs_to_many :abilities
 
   validates :name, presence: true
   validates :contacts, presence: true
   validates :salary, presence: true
   validates :abilities, presence: true
+  validates :search_status, presence: true
+
+  validates_with EmployeeNameValidator
 
   # Метод 1 - точное совпадение 1-2-3 = 1-2-3
   def vacancies_complete_match_m1

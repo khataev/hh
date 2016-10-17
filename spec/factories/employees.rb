@@ -3,6 +3,6 @@ FactoryGirl.define do
     name 'MyString'
     search_status 1
     salary 1
-    contacts 'MyText'
+    contacts 'Contacts'
   end
 end
