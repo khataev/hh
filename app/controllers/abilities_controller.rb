@@ -1,5 +1,7 @@
 class AbilitiesController < ApplicationController
 
+  before_action :load_object, only: :create
+
   respond_to :js, only: :create
 
   def index
@@ -7,7 +9,7 @@ class AbilitiesController < ApplicationController
   end
 
   def create
-    respond_with(@ability = Ability.create(ability_params))
+    respond_with(@ability = Ability.create(ability_params), @object)
   end
 
   private
@@ -18,5 +20,11 @@ class AbilitiesController < ApplicationController
 
   def load_ability
     @ability = Ability.find(params[:id])
+  end
+
+  def load_object
+    object_name = params[:ability][:object_name]
+    object_id = params[:ability][:object_id]
+    @object = object_name.constantize.find(object_id) if object_id && object_name
   end
 end

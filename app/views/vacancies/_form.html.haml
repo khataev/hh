@@ -14,9 +14,8 @@
     = f.label :valid_till, 'Вакансия действительна до'
     = f.date_select :valid_till
     %br
-    = render 'abilities/abilities', object: @vacancy, action: 'edit'
-    -#.abilities-panel
-      = render 'vacancies/vacancy_abilities'
+    .form-abilities-list
+      = render 'abilities/abilities', object: @vacancy, action: 'edit'
     = f.submit 'Редактировать умения', type: 'button', class: 'btn btn-primary', data: {toggle: 'modal', target: '#abilitiesModal'}
     = f.submit 'Сохранить', class: 'pull-right btn btn-default'
     = link_to 'Назад к списку', vacancies_path, class: 'pull-right btn btn-primary'

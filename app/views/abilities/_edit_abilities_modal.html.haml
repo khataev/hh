@@ -8,7 +8,8 @@
         %h4 Новое умение:
         = form_for Ability.new, html: { class: 'new-comment-form' }, remote: true do |f|
           .new-ability-errors
-          -#= f.label :name, 'Название:'
+          = f.hidden_field 'object_id', value: object.id
+          = f.hidden_field 'object_name', value: object.class.to_s
           = f.text_field :name, id: 'new-ability-name'
           = f.submit 'Добавить', class: 'btn btn-primary'
       .modal-footer

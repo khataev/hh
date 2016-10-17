@@ -6,6 +6,6 @@ $('.new-ability-errors').html('');
 
 <% else %>
   $('#abilitiesModal .abilities-list').append('<%= j render @ability, action: 'view' %>');
-//  $('#closeAbilitiesModal').click(reloadHandler);
+  $('.form-abilities-list .abilities-list').append('<%= j render @ability, action: 'edit', object_name: @object.class.to_s.downcase, object: @object %>');
   $('#new-ability-name').val('');
 <% end %>

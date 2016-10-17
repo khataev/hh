@@ -14,7 +14,8 @@
     = f.label :search_status, 'Ищу работу'
     = f.check_box :search_status
     %br
-    = render 'abilities/abilities', object: @employee, action: 'edit'
+    .form-abilities-list
+      = render 'abilities/abilities', object: @employee, action: 'edit'
     = f.submit 'Редактировать умения', type: 'button', class: 'btn btn-primary', data: {toggle: 'modal', target: '#abilitiesModal'}
     = f.submit 'Сохранить', class: 'pull-right btn btn-default'
     = link_to 'Назад к списку', employees_path, class: 'pull-right btn btn-primary'
