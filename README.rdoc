@@ -1,6 +1,6 @@
 == README
 
-Проект подключен к сервису непрерывной сборки - Travic-CI.org
+Проект подключен к сервису непрерывной сборки - Travis-CI.org
 
 {<img src="https://travis-ci.org/khataev/hh.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/khataev/hh]
 
