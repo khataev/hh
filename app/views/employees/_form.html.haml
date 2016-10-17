@@ -1,3 +1,8 @@
+.employee-errors
+  .ul
+    - @employee.errors.full_messages.each do |message|
+      .li=message
+
 = form_for @employee do |f|
   .form-group
     = f.label :name, 'ФИО:'

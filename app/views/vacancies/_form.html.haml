@@ -1,3 +1,8 @@
+.vacancy-errors
+  .ul
+    - @vacancy.errors.full_messages.each do |message|
+      .li=message
+
 = form_for @vacancy do |f|
   .form-group
     = f.label :name, 'Наименование:'
