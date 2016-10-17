@@ -25,6 +25,8 @@ class AbilitiesController < ApplicationController
   def load_object
     object_name = params[:ability][:object_name]
     object_id = params[:ability][:object_id]
-    @object = object_name.constantize.find(object_id) if object_id && object_name
+    if object_name
+      @object = object_id.empty? ? object_name.constantize.new : object_name.constantize.find(object_id)
+    end
   end
 end
