@@ -28,7 +28,7 @@ class Employee < ActiveRecord::Base
                   count(*) = (SELECT count(*) FROM abilities_vacancies avi WHERE avi.vacancy_id = av.vacancy_id)
               )
             ) r ON r.vacancy_id = v.id
-         WHERE v.valid_till > :valid_till AND
+         WHERE v.valid_till >= :valid_till AND
                v.salary >= :salary
          ORDER BY v.salary DESC
         ",
@@ -53,8 +53,8 @@ class Employee < ActiveRecord::Base
                   count(*) != (SELECT count(*) FROM abilities_vacancies avi WHERE avi.vacancy_id = av.vacancy_id)
               )
             ) r ON r.vacancy_id = v.id
-          WHERE v.valid_till > :valid_till AND
-                v.salary > :salary
+          WHERE v.valid_till >= :valid_till AND
+                v.salary >= :salary
           ORDER BY v.salary DESC
         ",
         { employee_id: id, valid_till: DateTime.now, salary: salary }
@@ -74,8 +74,8 @@ class Employee < ActiveRecord::Base
                       WHERE avi.vacancy_id = av.vacancy_id
                         AND avi.ability_id NOT IN (SELECT ability_id FROM abilities_employees WHERE employee_id = :employee_id)
                               ) AND
-            v.valid_till > :valid_till AND
-            v.salary > :salary
+            v.valid_till >= :valid_till AND
+            v.salary >= :salary
          ORDER BY v.salary DESC
         ",
         { employee_id: id, valid_till: DateTime.now, salary: salary }
@@ -95,8 +95,8 @@ class Employee < ActiveRecord::Base
                       WHERE avi.vacancy_id = av.vacancy_id
                         AND avi.ability_id NOT IN (SELECT ability_id FROM abilities_employees WHERE employee_id = :employee_id)
                               ) AND
-            v.valid_till > :valid_till AND
-            v.salary > :salary
+            v.valid_till >= :valid_till AND
+            v.salary >= :salary
          ORDER BY v.salary DESC
         ",
         { employee_id: id, valid_till: DateTime.now, salary: salary }
